@@ -1,0 +1,131 @@
+.maindivbuslist {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Heading */
+
+.buslisttage {
+  text-align: center;
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.buslisttage span {
+  color: #ff3b3b;
+}
+
+/* Search Box */
+
+.searchbyloaction {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.searchbox {
+  width: 100%;
+  max-width: 400px;
+  padding: 12px 15px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.searchbox:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 5px rgba(255, 59, 59, 0.3);
+}
+
+/* Bus List */
+
+.buslistchiled {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Bus Card */
+
+.buscard {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.buscard:hover {
+  transform: translateY(-5px);
+}
+
+/* Bus Image */
+
+.busimg {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  /* 🔥 perfect fit */
+}
+
+/* Bus Info */
+
+.businfo {
+  flex: 1;
+  padding: 15px;
+}
+
+.businfo h2 {
+  margin: 0;
+  color: #333;
+}
+
+.businfo p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Price */
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ff3b3b;
+  margin-top: 10px;
+}
+
+/* Button */
+
+.bookbtn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #ff6b6b, #ff3b3b);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bookbtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 10px rgba(255, 59, 59, 0.4);
+}
+
+/* 🔥 Mobile Responsive */
+
+@media (max-width: 768px) {
+  .buscard {
+    flex-direction: column;
+  }
+  .busimg {
+    width: 100%;
+    height: 180px;
+  }
+}

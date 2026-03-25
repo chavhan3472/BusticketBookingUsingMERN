@@ -1,0 +1,79 @@
+/* Bookinghistory.css */
+
+/* Main container for booking history */
+
+.bookingDataContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: #f5f5f5;
+  /* light gray background */
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Heading message */
+
+.bookingDataContainer h1 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+  /* deep blue */
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+/* Each booking card */
+
+.booking-card {
+  background: #ffffff;
+  width: 90%;
+  max-width: 500px;
+  margin: 10px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Hover effect for card */
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card headings */
+
+.booking-card h2 {
+  margin-bottom: 10px;
+  color: #111827;
+  /* almost black */
+  font-size: 1.4rem;
+}
+
+/* Booking details */
+
+.booking-card p {
+  margin: 5px 0;
+  color: #374151;
+  /* dark gray */
+  font-size: 1rem;
+}
+
+/* Responsive for mobile */
+
+@media (max-width: 600px) {
+  .booking-card {
+    width: 95%;
+    padding: 15px;
+  }
+  .booking-card p {
+    font-size: 0.9rem;
+  }
+  .bookingDataContainer h1 {
+    font-size: 1.5rem;
+  }
+}

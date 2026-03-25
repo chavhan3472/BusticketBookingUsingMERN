@@ -1,0 +1,153 @@
+/* Reset */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background: #eef2f7;
+}
+
+/* Main Container */
+
+.booking-seat {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* vertical center */
+  align-items: center;
+  /* horizontal center */
+  gap: 8px;
+  padding: 15px;
+}
+
+/* Heading */
+
+.booking-seat h1 {
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Form */
+
+.seatbookingform {
+  width: 100%;
+  max-width: 340px;
+  margin: 0;
+  /* 🔥 important for center */
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+
+/* Top Strip */
+
+.seatbookingform::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background: linear-gradient(90deg, #ff6b6b, #ff9f43);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+/* Inputs */
+
+.seatbookingform input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  background: #fafafa;
+  transition: 0.25s;
+}
+
+/* Focus */
+
+.seatbookingform input:focus {
+  border-color: #ff6b6b;
+  background: #fff;
+  box-shadow: 0 0 6px rgba(255, 107, 107, 0.3);
+  transform: scale(1.02);
+}
+
+/* Button (outside form) */
+
+.booking-seat button {
+  width: 100%;
+  max-width: 340px;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #ff6b6b, #ff3b3b);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover */
+
+.booking-seat button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 15px rgba(255, 59, 59, 0.4);
+}
+
+/* Click */
+
+.booking-seat button:active {
+  transform: scale(0.97);
+}
+
+/* Mobile */
+
+@media (max-width: 400px) {
+  .seatbookingform {
+    padding: 16px;
+  }
+  .booking-seat h1 {
+    font-size: 16px;
+  }
+  .booking-seat button {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+/* Label styling */
+
+.seatbookingform label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: -6px;
+  /* 🔥 label ko input ke paas lao */
+  margin-top: 6px;
+  padding-left: 4px;
+}
+
+/* First label ka extra space hatao */
+
+.seatbookingform label:first-of-type {
+  margin-top: 0;
+}
+
+/* Input spacing improve */
+
+.seatbookingform input {
+  margin-bottom: 6px;
+}
