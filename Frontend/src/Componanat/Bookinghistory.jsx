@@ -133,23 +133,6 @@ function Bookinghistory() {
         </div>
       </footer>
     </div>
-    // <div className="bookingDataContainer">
-    //   {api_data === undefined ? (
-    //     <h1>{msg}</h1>
-    //   ) : (
-    //     api_data.map((booking) => {
-    //       return (
-    //         <div key={booking._id || booking.bus_id} className="booking-card">
-    //           <h1>{msg}</h1>
-    //           <p>Date: {new Date(booking.book_date).toLocaleDateString()}</p>
-    //           <p>Seats: {booking.booked_seats}</p>
-    //           <p>Bus ID: {booking.bus_id}</p>
-    //           <p>User: {booking.user_email}</p>
-    //         </div>
-    //       );
-    //     })
-    //   )}
-    // </div>
   );
 }
 

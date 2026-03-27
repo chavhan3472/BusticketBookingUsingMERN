@@ -175,36 +175,6 @@ function Register() {
         </div>
       </footer>
     </div>
-    // <div className="registermain">
-    //   <div className="registersub">
-    //     <h1>{msg}</h1>
-    //     <input
-    //       type="text"
-    //       placeholder="Name"
-    //       value={data.user_name}
-    //       onChange={(e) => updData({ ...data, user_name: e.target.value })}
-    //     />
-    //     <input
-    //       type="email"
-    //       placeholder="Email"
-    //       value={data.user_email}
-    //       onChange={(e) => updData({ ...data, user_email: e.target.value })}
-    //     />
-    //     <input
-    //       type="tel"
-    //       placeholder="Phone Number"
-    //       value={data.user_phno}
-    //       onChange={(e) => updData({ ...data, user_phno: e.target.value })}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="Password"
-    //       value={data.user_password}
-    //       onChange={(e) => updData({ ...data, user_password: e.target.value })}
-    //     />
-    //   </div>
-    //   <button onClick={handleRegister}>Register</button>
-    // </div>
   );
 }
 

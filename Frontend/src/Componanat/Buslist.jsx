@@ -5,7 +5,6 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import "./Buslist.css";
-
 function Buslist() {
   let navigate = useNavigate();
   let obj = useContext(Ct);

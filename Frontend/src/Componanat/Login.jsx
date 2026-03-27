@@ -111,24 +111,6 @@ function Login() {
         </div>
       </footer>
     </div>
-    // <div className="loginparent">
-    //   <h1>{msg}</h1>
-    //   <div className="logincontent">
-    //     <input
-    //       type="email"
-    //       placeholder="Email"
-    //       value={data.user_email}
-    //       onChange={(e) => updData({ ...data, user_email: e.target.value })}
-    //     />
-    //     <input
-    //       type="password"
-    //       placeholder="Password"
-    //       value={data.user_password}
-    //       onChange={(e) => updData({ ...data, user_password: e.target.value })}
-    //     />
-    //     <button onClick={loginbutton}>Login</button>
-    //   </div>
-    // </div>
   );
 }
 
