@@ -18,7 +18,7 @@ let booking_history = async (req, res) => {
   try {
     let obj = await booking_data.find({ user_email: req.params.user_email });
     if (obj && obj.length > 0) {
-      res.json({ msg: "Booking Found", booking_data: obj }); // now booking_data is an array
+      res.json({ msg: "Booking Found", booking_data: obj });
     } else {
       res.json({ msg: "No Booking Found", booking_data: [] });
     }
@@ -28,7 +28,7 @@ let booking_history = async (req, res) => {
 };
 let all_booking = async (req, res) => {
   try {
-    let data = await booking_data.find(); // ✅ sab booking fetch
+    let data = await booking_data.find();
     res.json(data);
   } catch (error) {
     console.log(error);
