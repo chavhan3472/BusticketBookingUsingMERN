@@ -22,6 +22,7 @@ function AllBooking() {
       axios
         .get("http://localhost:5000/allbooking")
         .then((res) => {
+          console.log(res.data, "This The Backend Data ");
           updBooking_data(res.data);
         })
         .catch(() => {
@@ -81,14 +82,14 @@ function AllBooking() {
               <thead className="bg-slate-800 text-white">
                 <tr>
                   <th className="px-6 py-3">Bus ID</th>
-                  <th className="px-6 py-3">Bus Name</th>
+                  <th className="px-6 py-3">UserEmail</th>
                   <th className="px-6 py-3">From</th>
                   <th className="px-6 py-3">To</th>
                   <th className="px-6 py-3">Departure</th>
                   <th className="px-6 py-3">Arrival</th>
                   <th className="px-6 py-3">Seats</th>
                   <th className="px-6 py-3">Price</th>
-                  <th className="px-6 py-3">Type</th>
+                  <th className="px-6 py-3">BookingDate</th>
                 </tr>
               </thead>
 
@@ -99,16 +100,18 @@ function AllBooking() {
                     className="border-b hover:bg-slate-100 transition"
                   >
                     <td className="px-6 py-3">{book.bus_id}</td>
-                    <td className="px-6 py-3">{book.bus_name}</td>
+                    <td className="px-6 py-3">{book.user_email}</td>
                     <td className="px-6 py-3">{book.start_from}</td>
                     <td className="px-6 py-3">{book.end_point}</td>
                     <td className="px-6 py-3">{book.depature_time}</td>
                     <td className="px-6 py-3">{book.arrival_time}</td>
-                    <td className="px-6 py-3">{book.totalseat}</td>
+                    <td className="px-6 py-3">{book.booked_seats}</td>
                     <td className="px-6 py-3 text-green-600 font-semibold">
                       ₹{book.ticket_price}
                     </td>
-                    <td className="px-6 py-3">{book.bus_type}</td>
+                    <td className="px-6 py-3">
+                      {new Date(book.book_date).toLocaleString()}
+                    </td>
                   </tr>
                 ))}
               </tbody>
