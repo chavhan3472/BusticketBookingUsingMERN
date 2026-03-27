@@ -3,7 +3,12 @@ const {
   user_registartion,
   user_login,
 } = require("../Controller/usercontroller");
-const { bus_add, upload, bus_update } = require("../Controller/buscontrooler");
+const {
+  bus_add,
+  upload,
+  bus_update,
+  deleteBus,
+} = require("../Controller/buscontrooler");
 const bus_booking = require("../Controller/booking");
 const bus_list = require("../Controller/Allbus");
 const {
@@ -20,4 +25,5 @@ mini_app.post("/booking", bus_booking);
 mini_app.get("/allbuslist", bus_list);
 mini_app.get("/bookinghistroy/:user_email", booking_history);
 mini_app.get("/allbooking", all_booking);
+mini_app.delete("/dealtebus/:bus_id", deleteBus);
 module.exports = mini_app;

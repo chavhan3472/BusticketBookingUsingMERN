@@ -19,7 +19,7 @@ function Addbus() {
     ticket_price: "",
     bus_img: "",
     bus_type: "",
-    journy_date: "",
+    travel_date: "",
   });
   let submitbusdata = (e) => {
     updData({ ...data, [e.target.name]: e.target.value });
@@ -48,6 +48,7 @@ function Addbus() {
         ticket_price: "",
         bus_img: "",
         bus_type: "",
+        travel_date: "",
       });
     });
   };
@@ -148,7 +149,15 @@ function Addbus() {
           onChange={submitbusdata}
           className="p-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
         />
-
+        <label className="text-gray-700 font-medium">Travel Date</label>
+        <input
+          type="Date"
+          placeholder="Enter Travel Data"
+          name="travel_date"
+          value={data.travel_date}
+          onChange={submitbusdata}
+          className="p-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 outline-none transition"
+        />
         <button
           onClick={submitbus}
           className="bg-orange-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:bg-orange-400 hover:scale-105 transition-transform mt-2"

@@ -1,15 +1,15 @@
-// import { defineConfig } from 'vite'
-// import react from '@vitejs/plugin-react'
-
-// // https://vite.dev/config/
-// export default defineConfig({
-//   plugins: [react()],
-// })
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/BusticketBookingUsingMERN/",
   plugins: [react()],
 });
+// import { defineConfig } from "vite";
+// import react from "@vitejs/plugin-react";
+
+// // https://vite.dev/config/       /// For deploye purpose
+// export default defineConfig({
+//   base: "/BusticketBookingUsingMERN/",
+//   plugins: [react()],
+// });

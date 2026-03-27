@@ -14,6 +14,10 @@ let bus_schema = mongoose.Schema({
     type: String,
     default: "non-ac/slepper",
   },
+  travel_date: {
+    type: Date,
+    required: true,
+  },
 });
 let bus_data = mongoose.model("bus_data", bus_schema);
 module.exports = bus_data;

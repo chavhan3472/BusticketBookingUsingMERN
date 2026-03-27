@@ -28,7 +28,6 @@ let bus_add = async (req, res) => {
     res.json({ msg: "Failed To Add Bus Data " });
   }
 };
-
 let bus_update = async (req, res) => {
   console.log(req.body);
   try {
@@ -40,4 +39,19 @@ let bus_update = async (req, res) => {
   }
 };
 
-module.exports = { bus_add, upload, bus_update };
+let deleteBus = async (req, res) => {
+  try {
+    let deleted = await bus_data.findOneAndDelete({
+      bus_id: req.params.bus_id,
+    });
+
+    if (!deleted) {
+      return res.json({ msg: "Bus Not Found" });
+    }
+
+    res.json({ msg: "Bus Deleted Successfully" });
+  } catch (error) {
+    res.json({ msg: "Error while deleting bus" });
+  }
+};
+module.exports = { bus_add, upload, bus_update, deleteBus };

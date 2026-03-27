@@ -3,11 +3,11 @@ import Ct from "./Context";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 function Showbooking() {
   let [isedit, updIsedit] = useState(false);
   let navigate = useNavigate();
   let [bus_data, updBus_data] = useState([]);
+  let [flag, updFlag] = useState(false);
   let obj = useContext(Ct);
   let [msg, updMsg] = useState("Buses");
   let [updated_data, setUpdatedData] = useState({
@@ -50,6 +50,18 @@ function Showbooking() {
       console.error(err);
     }
   };
+  let dealte_bus = (bus_id) => {
+    axios
+      .delete(`http://localhost:5000/dealtebus/${bus_id}`)
+      .then((res) => {
+        if (res.data.msg === "Bus Deleted Successfully") {
+          updFlag(!flag);
+        }
+      })
+      .catch((error) => {
+        console.log(error, "This The Error");
+      });
+  };
   useEffect(() => {
     let get_cookies = Cookies.get("login_data");
     if (!get_cookies) {
@@ -64,7 +76,7 @@ function Showbooking() {
         updMsg(res.data[0]?.bus_name);
       });
     }
-  }, []);
+  }, [flag]);
 
   return (
     <div className="bg-gradient-to-r from-slate-900 via-purple-900 to-indigo-900 min-h-screen p-8">
@@ -128,9 +140,18 @@ function Showbooking() {
                 </p>
 
                 <span className="inline-block bg-blue-600/40 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Bus Type:
                   {bus.bus_type.toUpperCase()}
                 </span>
-
+                <span className="inline-block bg-blue-600/40 text-white px-3 py-1 rounded-full text-sm font-medium">
+                  Date Of Journey:{" "}
+                  {new Date(bus.travel_date).toLocaleDateString("en-IN", {
+                    timeZone: "Asia/Kolkata",
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric",
+                  })}
+                </span>
                 <div className="mt-4 flex justify-between gap-4">
                   <button
                     onClick={() => openEdit(bus)}
@@ -139,7 +160,10 @@ function Showbooking() {
                     Update Bus
                   </button>
 
-                  <button className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-xl font-medium shadow-md transition">
+                  <button
+                    className="flex-1 bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-xl font-medium shadow-md transition"
+                    onClick={() => dealte_bus(bus.bus_id)}
+                  >
                     Delete Bus
                   </button>
                 </div>
@@ -148,7 +172,6 @@ function Showbooking() {
           ))
         )}
       </div>
-
       {/* Edit Form Placeholder */}
       {isedit && (
         <div className="bg-white/95 rounded-2xl shadow-2xl p-8 md:p-10 max-w-md mx-auto mt-10">

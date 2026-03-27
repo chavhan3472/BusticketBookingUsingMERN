@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-
 function Seatselection() {
   let navigate = useNavigate();
   let obj = useContext(Ct);
@@ -15,7 +14,7 @@ function Seatselection() {
     bus_id: "",
     book_date: "",
     booked_seats: "",
-    trave_date: "",
+    trave_data: "",
     ticket_price: "",
     start_from: "",
     end_point: "",
@@ -23,24 +22,6 @@ function Seatselection() {
   let login_data = (e) => {
     updData({ ...data, [e.target.name]: e.target.value });
   };
-  // let bookticket = () => {
-  //   axios
-  //     .post("http://localhost:5000/booking", data)
-  //     .then((res) => {
-  //       if (res.data.msg === "Booking Sucessful") {
-  //         updmsg(
-  //           `🎉 Booking Confirmed!${obj.data.user_name} आपकी यात्रा अब ready है 🚍`,
-  //         );
-  //         setTimeout(() => {
-  //           navigate("/buslist");
-  //         }, 5000);
-  //         // navigate("/buslist");
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       updmsg(res.data.msg);
-  //     });
-  // };
   let [loading, setLoading] = useState(false); // loading state
   let bookticket = () => {
     setLoading(true);
@@ -118,8 +99,8 @@ function Seatselection() {
         <label className="text-gray-700 font-medium">Travel Date</label>
         <input
           type="date"
-          name="trave_date"
-          value={data.trave_date}
+          name="trave_data"
+          value={data.trave_data}
           onChange={login_data}
           className="p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
         />
@@ -244,51 +225,6 @@ function Seatselection() {
         </div>
       </footer>
     </div>
-    // <div className="booking-seat">
-    //   <h1>{msg}</h1>
-    //   <div className="seatbookingform">
-    //     <input
-    //       type="text"
-    //       placeholder="Enter Your Email"
-    //       name="user_email"
-    //       value={data.user_email}
-    //       onChange={login_data}
-    //     />
-    //     <label>Booking Date</label>
-    //     <input
-    //       type="Date"
-    //       placeholder="Enter Booking Date"
-    //       name="book_date"
-    //       onChange={login_data}
-    //       value={data.book_date}
-    //     />
-    //     <input
-    //       type="text"
-    //       placeholder="Enter Bus_Id"
-    //       name="bus_id"
-    //       onChange={login_data}
-    //       value={data.bus_id}
-    //     />
-    //     <input
-    //       type="text"
-    //       placeholder="Enter Seat No"
-    //       name="booked_seats"
-    //       onChange={login_data}
-    //       value={data.booked_seats}
-    //     />
-    //     <label>Travel Date</label>
-    //     <input
-    //       type="Date"
-    //       placeholder="Enter Seat No"
-    //       name="trave_date"
-    //       onChange={login_data}
-    //       value={data.trave_date}
-    //     />
-    //     <button onClick={bookticket}>BookNow</button>
-    //   </div>
-    //   {/* <button onClick={bookticket}>BookNow</button> */}
-    // </div>
   );
 }
-
 export default Seatselection;
