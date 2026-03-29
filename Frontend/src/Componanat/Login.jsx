@@ -11,7 +11,6 @@ function Login() {
     user_email: "",
     user_password: "",
   });
-
   let [msg, updMsg] = useState("Welcome to Booking My Bus Ticket");
   let loginbutton = () => {
     axios.post("http://localhost:5000/userlogin", data).then((res) => {
@@ -29,6 +28,10 @@ function Login() {
       }
     });
   };
+  let reset_password = () => {
+    navigate("/resetpassword");
+  };
+
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-b from-sky-400 to-blue-700 p-5">
       <h1 className="text-3xl md:text-4xl text-white font-bold mb-10 text-center drop-shadow-lg">
@@ -55,6 +58,12 @@ function Login() {
           className="bg-orange-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:bg-orange-400 hover:scale-105 transition-transform"
         >
           Login
+        </button>
+        <button
+          onClick={reset_password}
+          className="bg-orange-500 text-white py-3 rounded-xl font-semibold shadow-lg hover:bg-orange-400 hover:scale-105 transition-transform"
+        >
+          Reset Password
         </button>
       </div>
       <footer className="bg-slate-900 text-white py-12 mt-16 border-t border-slate-700">

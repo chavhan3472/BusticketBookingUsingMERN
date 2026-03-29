@@ -14,6 +14,7 @@ import Allbooking from "./Componanat/Allbooking.jsx";
 import "./App.css";
 import Showbooking from "./Componanat/Showbooking.jsx";
 // import { route } from "../../Backend/Routes/router.js";
+import Restpassword from "./Restpassword.jsx";
 function App() {
   let [data, setData] = React.useState({
     token: "",
@@ -40,6 +41,7 @@ function App() {
           <Route path="/allbooking" element={<Allbooking />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/showbooking" element={<Showbooking />} />
+          <Route path="/resetpassword" element={<Restpassword />} />
         </Routes>
       </Ct.Provider>
     </BrowserRouter>
