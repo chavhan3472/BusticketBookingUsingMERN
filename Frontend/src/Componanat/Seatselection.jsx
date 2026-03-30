@@ -28,7 +28,7 @@ function Seatselection() {
     updmsg("Booking Processing... ⏳");
 
     axios
-      .post("http://localhost:5000/booking", data)
+      .post("https://busticketbookingusingmern.onrender.com/booking", data)
       .then((res) => {
         setLoading(false);
         if (res.data.msg === "Booking Sucessful") {

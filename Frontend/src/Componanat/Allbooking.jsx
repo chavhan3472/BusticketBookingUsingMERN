@@ -20,7 +20,7 @@ function AllBooking() {
       obj.updfun(user);
 
       axios
-        .get("http://localhost:5000/allbooking")
+        .get("https://busticketbookingusingmern.onrender.com/allbooking")
         .then((res) => {
           console.log(res.data, "This The Backend Data ");
           updBooking_data(res.data);

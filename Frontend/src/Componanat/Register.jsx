@@ -22,7 +22,10 @@ function Register() {
       return;
     }
     axios
-      .post("http://localhost:5000/userregistration", data)
+      .post(
+        "https://busticketbookingusingmern.onrender.com/userregistration",
+        data,
+      )
       .then((res) => {
         if (res.data.msg === "Account Created Sucessfully") {
           updData({

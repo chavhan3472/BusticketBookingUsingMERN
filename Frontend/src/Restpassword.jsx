@@ -17,7 +17,7 @@ const ResetPassword = () => {
     }
 
     axios
-      .post(`http://localhost:5000/sendotp/${email}`)
+      .post(`https://busticketbookingusingmern.onrender.com/sendotp/${email}`)
       .then((res) => {
         setMsg(res.data.msg);
 
@@ -50,7 +50,7 @@ const ResetPassword = () => {
     }
 
     axios
-      .post("http://localhost:5000/resetpassword", {
+      .post("https://busticketbookingusingmern.onrender.com/resetpassword", {
         user_email: email,
         otp: otp,
         user_password: npwd,

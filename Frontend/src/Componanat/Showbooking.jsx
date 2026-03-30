@@ -32,7 +32,7 @@ function Showbooking() {
     try {
       await axios
         .put(
-          `http://localhost:5000/updatebus/${updated_data.bus_id}`,
+          `https://busticketbookingusingmern.onrender.com/updatebus/${updated_data.bus_id}`,
           updated_data,
         )
         .then((res) => {
@@ -44,7 +44,9 @@ function Showbooking() {
 
       updIsedit(false);
 
-      const res = await axios.get("http://localhost:5000/allbuslist");
+      const res = await axios.get(
+        "https://busticketbookingusingmern.onrender.com/allbuslist",
+      );
       updBus_data(res.data);
     } catch (err) {
       console.error(err);
@@ -52,7 +54,9 @@ function Showbooking() {
   };
   let dealte_bus = (bus_id) => {
     axios
-      .delete(`http://localhost:5000/dealtebus/${bus_id}`)
+      .delete(
+        `https://busticketbookingusingmern.onrender.com/dealtebus/${bus_id}`,
+      )
       .then((res) => {
         if (res.data.msg === "Bus Deleted Successfully") {
           updFlag(!flag);
@@ -71,10 +75,12 @@ function Showbooking() {
       obj.updfun(user);
       navigate("/showbooking");
 
-      axios.get("http://localhost:5000/allbuslist").then((res) => {
-        updBus_data(res.data);
-        updMsg(res.data[0]?.bus_name);
-      });
+      axios
+        .get("https://busticketbookingusingmern.onrender.com/allbuslist")
+        .then((res) => {
+          updBus_data(res.data);
+          updMsg(res.data[0]?.bus_name);
+        });
     }
   }, [flag]);
 
@@ -96,7 +102,7 @@ function Showbooking() {
               <img
                 src={
                   bus.bus_img
-                    ? `http://localhost:5000/Busimg/${bus.bus_img}`
+                    ? `https://busticketbookingusingmern.onrender.com/Busimg/${bus.bus_img}`
                     : "https://via.placeholder.com/400x200?text=No+Image"
                 }
                 alt={bus.bus_name}

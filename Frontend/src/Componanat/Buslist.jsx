@@ -23,7 +23,7 @@ function Buslist() {
     }
 
     axios
-      .get("http://localhost:5000/allbuslist")
+      .get("https://busticketbookingusingmern.onrender.com/allbuslist")
       .then((res) => {
         console.log(res.data, "This Is The Data");
         updData(res.data);
@@ -85,7 +85,7 @@ function Buslist() {
               className="bg-slate-800 rounded-2xl shadow-2xl overflow-hidden transition-transform hover:scale-105 hover:shadow-2xl"
             >
               <img
-                src={`http://localhost:5000/Busimg/${bus.bus_img}`}
+                src={`https://busticketbookingusingmern.onrender.com/Busimg/${bus.bus_img}`}
                 alt="bus"
                 className="w-full h-48 object-cover"
               />

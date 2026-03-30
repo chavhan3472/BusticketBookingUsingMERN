@@ -33,24 +33,26 @@ function Addbus() {
       form_data.append(key, data[key]);
     }
 
-    axios.post("http://localhost:5000/addbus", form_data).then((res) => {
-      if (res.data.msg) {
-        updMsg(res.data.msg);
-      }
-      updData({
-        bus_id: "",
-        bus_name: "",
-        start_from: "",
-        end_point: "",
-        depature_time: "",
-        arrival_time: "",
-        totalseat: "",
-        ticket_price: "",
-        bus_img: "",
-        bus_type: "",
-        travel_date: "",
+    axios
+      .post("https://busticketbookingusingmern.onrender.com/addbus", form_data)
+      .then((res) => {
+        if (res.data.msg) {
+          updMsg(res.data.msg);
+        }
+        updData({
+          bus_id: "",
+          bus_name: "",
+          start_from: "",
+          end_point: "",
+          depature_time: "",
+          arrival_time: "",
+          totalseat: "",
+          ticket_price: "",
+          bus_img: "",
+          bus_type: "",
+          travel_date: "",
+        });
       });
-    });
   };
   useEffect(() => {
     let get_cookies = Cookies.get("login_data");

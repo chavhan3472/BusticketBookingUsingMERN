@@ -13,20 +13,24 @@ function Login() {
   });
   let [msg, updMsg] = useState("Welcome to Booking My Bus Ticket");
   let loginbutton = () => {
-    axios.post("http://localhost:5000/userlogin", data).then((res) => {
-      if (res.data.token === undefined) {
-        updMsg("Invalid Email or Password");
-      } else {
-        Cookies.set("login_data", JSON.stringify(res.data), { expires: 7 });
-        obj.updfun(res.data);
+    axios
+      .post("https://busticketbookingusingmern.onrender.com/userlogin", data)
+      .then((res) => {
+        if (res.data.token === undefined) {
+          updMsg("Invalid Email or Password");
+        } else {
+          Cookies.set("login_data", JSON.stringify(res.data), { expires: 7 });
+          obj.updfun(res.data);
 
-        console.log(res.data.role, "This Is the Data");
-        window.alert("Login Success");
-        console.log("sdggg", obj.data);
+          console.log(res.data.role, "This Is the Data");
+          window.alert("Login Success");
+          console.log("sdggg", obj.data);
 
-        res.data.role === "admin" ? navigate("/addbus") : navigate("/buslist");
-      }
-    });
+          res.data.role === "admin"
+            ? navigate("/addbus")
+            : navigate("/buslist");
+        }
+      });
   };
   let reset_password = () => {
     navigate("/resetpassword");

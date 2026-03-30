@@ -17,7 +17,9 @@ function Bookinghistory() {
       let user = JSON.parse(get_cookies);
       obj.updfun(user);
       axios
-        .get(`http://localhost:5000/bookinghistroy/${user.user_email}`)
+        .get(
+          `https://busticketbookingusingmern.onrender.com/bookinghistroy/${user.user_email}`,
+        )
 
         .then((res) => {
           console.log(res.data, "This The Booking Data");
