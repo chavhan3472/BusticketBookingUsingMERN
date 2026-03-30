@@ -7,6 +7,24 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const sendOtpMail = async (user_email, otp) => {
+  try {
+    await transporter.sendMail({
+      from: "mernproject601@gmail.com",
+      to: user_email,
+      subject: "Your OTP Code 🔐",
+      html: `
+        <h2>Password Reset OTP</h2>
+        <p>Your OTP is:</p>
+        <h1 style="color:blue;">${otp}</h1>
+        <p>This OTP is valid for 5 minutes.</p>
+      `,
+    });
+  } catch (error) {
+    console.log("OTP Mail Error:", error);
+  }
+};
+
 const sendBookingMail = async (user_email, booking_data) => {
   try {
     await transporter.sendMail({
@@ -29,4 +47,4 @@ const sendBookingMail = async (user_email, booking_data) => {
     console.log("Mail Error:", error);
   }
 };
-module.exports = sendBookingMail;
+module.exports = { sendOtpMail, sendBookingMail };

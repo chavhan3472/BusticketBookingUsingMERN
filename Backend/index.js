@@ -2,10 +2,9 @@ let express = require("express");
 let mongoose = require("mongoose");
 let cors = require("cors");
 const mini_app = require("./Routes/router");
+require("dotenv").config();
 mongoose
-  .connect(
-    "mongodb+srv://sahilchavhan250_db_user:PSTWrj2m0dQWQU28@cluster0.y9kpyzn.mongodb.net/BusTicketBooking",
-  )
+  .connect(process.env.myDatabase)
   .then(() => {
     console.log("Coonection Ok ");
   })
@@ -14,7 +13,7 @@ mongoose
   });
 let app = express();
 app.listen(5000, () => {
-  console.log("server is run on port number 5000");
+  console.log("server is run");
 });
 app.use(express.json());
 app.use(cors());

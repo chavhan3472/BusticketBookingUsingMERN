@@ -1,5 +1,5 @@
 let booking_data = require("../model/bookingmodel");
-let sendBookingMail = require("../utils/sendMail");
+let { sendBookingMail } = require("../utils/sendMail");
 
 let bus_booking = async (req, res) => {
   try {

@@ -1,6 +1,7 @@
 let bcrypt = require("bcrypt");
 let jwt = require("jsonwebtoken");
 let user_data = require("../model/usermodel");
+let { sendOtpMail } = require("../utils/sendMail");
 let user_registartion = async (req, res) => {
   try {
     let obj = await user_data.findOne({ user_email: req.body.user_email });
@@ -48,4 +49,63 @@ let user_login = async (req, res) => {
     res.json({ msg: "Failed To Login" });
   }
 };
-module.exports = { user_registartion, user_login };
+
+let send_otp = async (req, res) => {
+  try {
+    let email = req.params.user_email;
+
+    let obj = await user_data.findOne({ user_email: email });
+
+    if (obj) {
+      let otp = Math.floor(1000 + Math.random() * 9000).toString();
+
+      console.log(otp);
+
+      await user_data.updateOne({ user_email: email }, { $set: { otp: otp } });
+
+      await sendOtpMail(email, otp);
+
+      res.json({ msg: "otp sent" });
+    } else {
+      res.json({ msg: "invalid email" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ msg: "failed to send otp" });
+  }
+};
+
+let reset_password = async (req, res) => {
+  try {
+    let obj = await user_data.findOne({
+      user_email: req.body.user_email,
+    });
+
+    if (obj) {
+      if (obj.otp !== req.body.otp) {
+        return res.json({ msg: "Invalid OTP" });
+      }
+
+      let securepassword = await bcrypt.hash(req.body.user_password, 10);
+
+      await user_data.updateOne(
+        { user_email: req.body.user_email },
+        {
+          $set: {
+            user_password: securepassword,
+            otp: "",
+          },
+        },
+      );
+
+      res.json({ msg: "Password Reset Successfully" });
+    } else {
+      res.json({ msg: "Please Enter Valid Email" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ msg: "Failed To Reset Password" });
+  }
+};
+
+module.exports = { user_registartion, user_login, send_otp, reset_password };

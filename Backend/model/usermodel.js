@@ -5,6 +5,7 @@ let user_schema = mongoose.Schema({
   user_email: String,
   user_phno: String,
   user_password: String,
+  otp: String,
   role: {
     type: String,
     default: "user",
